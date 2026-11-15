@@ -1,0 +1,6 @@
+name: GuiShop
+version: '${version}'
+main: cz.mmartis.guishop.GuiShopPlugin
+api-version: '26.3'
+author: mmartis
+description: GUI shop napojený na Vault ekonomiku.
