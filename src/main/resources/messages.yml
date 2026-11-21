@@ -1,0 +1,16 @@
+# GuiShop messages. Format: MiniMessage, https://docs.advntr.dev/minimessage/format.html
+# Any message can contain <prefix>, which is replaced by the prefix below.
+# After editing, run /shop reload. A deleted key falls back to the built-in text.
+
+# Text inserted wherever a message contains <prefix>.
+prefix: "<dark_gray>[<gold>Shop</gold>]</dark_gray> "
+
+# Reply to /shop until the shop menu is finished.
+shop-not-ready: "<prefix><gray>The shop menu is coming soon."
+
+# /shop reload succeeded.
+reload-success: "<prefix><green>Configuration reloaded."
+
+# /shop reload failed; the previous configuration stays active.
+# <error> = the broken file and the reason.
+reload-failed: "<prefix><red>Reload failed, keeping the previous configuration. <gray><error>"

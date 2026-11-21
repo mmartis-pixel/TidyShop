@@ -1,0 +1,45 @@
+# GuiShop configuration.
+# After editing, run /shop reload (no restart needed).
+# A mistake in one category or item only skips that entry; the console tells you which one and why.
+
+# Categories shown in the main menu (/shop).
+# The key under "categories" (e.g. "blocks") is the category id. It must be unique.
+categories:
+  blocks:
+    # Category title. MiniMessage format: https://docs.advntr.dev/minimessage/format.html
+    name: "<green>Blocks"
+    # Icon in the main menu: vanilla material name (e.g. oak_log, diamond).
+    icon: grass_block
+    # Position in the main menu. 0 = top-left slot. Two categories cannot share a slot.
+    slot: 11
+    # Items for sale. The key is a vanilla material name. At most 45 items per category.
+    #   buy:  price for 1 piece when a player buys it. Leave out = cannot be bought.
+    #   sell: money for 1 piece when a player sells it. Leave out = cannot be sold.
+    #   Prices may have decimals (0.5). 0 means free.
+    items:
+      oak_log:
+        buy: 4
+        sell: 1
+      stone:
+        buy: 2
+        sell: 0.5
+      glass:
+        buy: 3
+
+  ores:
+    # Category title (MiniMessage).
+    name: "<aqua>Ores"
+    # Icon in the main menu (vanilla material name).
+    icon: diamond
+    # Position in the main menu (0 = top-left).
+    slot: 15
+    # Items for sale (material: buy / sell price per piece).
+    items:
+      coal:
+        sell: 2
+      iron_ingot:
+        buy: 20
+        sell: 8
+      diamond:
+        buy: 200
+        sell: 100

@@ -4,3 +4,11 @@ run/
 .idea/
 *.iml
 out/
+
+# VS Code Java output
+bin/
+.vscode/
+
+# JVM crash dumps
+hs_err_pid*
+replay_pid*
