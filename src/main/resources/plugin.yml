@@ -4,3 +4,12 @@ main: cz.mmartis.guishop.GuiShopPlugin
 api-version: '26.3'
 author: mmartis
 description: GUI shop napojený na Vault ekonomiku.
+depend: [Vault]
+
+permissions:
+  guishop.use:
+    description: Otevřít obchod (/shop).
+    default: true
+  guishop.admin:
+    description: Znovu načíst konfiguraci (/shop reload).
+    default: op
