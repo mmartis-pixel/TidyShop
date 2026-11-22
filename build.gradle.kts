@@ -23,6 +23,7 @@ dependencies {
 
     // VaultAPI pulls an old Bukkit transitively; Paper API already provides it.
     compileOnly("com.github.MilkBowl:VaultAPI:1.7.1") { isTransitive = false }
+    testImplementation("com.github.MilkBowl:VaultAPI:1.7.1") { isTransitive = false } // VaultWalletTest
 
     testImplementation("org.mockbukkit.mockbukkit:mockbukkit-v26.3:4.120.0")
     testImplementation(platform("org.junit:junit-bom:5.13.4"))
