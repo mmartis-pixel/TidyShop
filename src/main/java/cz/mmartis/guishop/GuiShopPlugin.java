@@ -3,9 +3,12 @@ package cz.mmartis.guishop;
 import com.mojang.brigadier.Command;
 import cz.mmartis.guishop.config.Messages;
 import cz.mmartis.guishop.config.ShopConfig;
+import cz.mmartis.guishop.menu.MainMenu;
+import cz.mmartis.guishop.menu.MenuListener;
 import io.papermc.paper.command.brigadier.Commands;
 import io.papermc.paper.plugin.lifecycle.event.types.LifecycleEvents;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -40,16 +43,15 @@ public class GuiShopPlugin extends JavaPlugin {
             getLogger().severe("Could not load " + error + ". The shop stays empty until /shop reload succeeds.");
         }
 
+        getServer().getPluginManager().registerEvents(new MenuListener(), this);
+
         // Paper way: commands are registered via Brigadier in the lifecycle event,
         // not in plugin.yml. Survives /minecraft:reload.
         getLifecycleManager().registerEventHandler(LifecycleEvents.COMMANDS, event ->
                 event.registrar().register(
                         Commands.literal("shop")
                                 .requires(source -> source.getSender().hasPermission("guishop.use"))
-                                .executes(ctx -> {
-                                    ctx.getSource().getSender().sendMessage(messages.get("shop-not-ready"));
-                                    return Command.SINGLE_SUCCESS;
-                                })
+                                .executes(ctx -> openShop(ctx.getSource().getSender()))
                                 .then(Commands.literal("reload")
                                         .requires(source -> source.getSender().hasPermission("guishop.admin"))
                                         .executes(ctx -> reload(ctx.getSource().getSender())))
@@ -65,6 +67,15 @@ public class GuiShopPlugin extends JavaPlugin {
 
     public Messages messages() {
         return messages;
+    }
+
+    private int openShop(CommandSender sender) {
+        if (sender instanceof Player player) {
+            new MainMenu(shopConfig, messages).open(player);
+        } else {
+            sender.sendMessage(messages.get("players-only"));
+        }
+        return Command.SINGLE_SUCCESS;
     }
 
     private int reload(CommandSender sender) {

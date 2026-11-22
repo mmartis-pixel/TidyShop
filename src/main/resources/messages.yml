@@ -5,8 +5,14 @@
 # Text inserted wherever a message contains <prefix>.
 prefix: "<dark_gray>[<gold>Shop</gold>]</dark_gray> "
 
-# Reply to /shop until the shop menu is finished.
-shop-not-ready: "<prefix><gray>The shop menu is coming soon."
+# Title of the main menu opened by /shop.
+main-menu-title: "<dark_gray>Shop"
+
+# /shop typed in the server console.
+players-only: "<prefix><red>Only players can open the shop."
+
+# Clicking a category, until category pages exist. <category> = category id.
+category-clicked: "<prefix><gray>Category <white><category></white> - pages are coming soon."
 
 # /shop reload succeeded.
 reload-success: "<prefix><green>Configuration reloaded."

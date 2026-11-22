@@ -65,14 +65,13 @@ class GuiShopPluginTest {
     @Test
     void shopCommandRepliesFromMessagesFile() throws IOException {
         PlayerMock admin = admin();
-        writeDataFile("messages.yml", "shop-not-ready: \"custom text\"\n");
+        writeDataFile("messages.yml", "players-only: \"custom text\"\n");
         admin.performCommand("shop reload");
         admin.nextComponentMessage(); // reload confirmation
 
-        PlayerMock player = server.addPlayer();
-        player.performCommand("shop");
+        server.dispatchCommand(server.getConsoleSender(), "shop");
 
-        assertEquals("custom text", plain(player.nextComponentMessage()));
+        assertEquals("custom text", plain(server.getConsoleSender().nextComponentMessage()));
     }
 
     @Test
