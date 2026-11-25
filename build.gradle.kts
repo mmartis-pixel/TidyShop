@@ -47,11 +47,13 @@ tasks {
     runServer {
         minecraftVersion(mcVersion)
         jvmArgs("-Xmx1G")
+        // Test switches: `runServer -PnoEconomy` starts without EssentialsX (no economy provider),
+        // `runServer -PnoVault` without Vault (TidyShop must refuse to load).
         downloadPlugins {
-            modrinth("vaultunlocked", "2.20.3")
+            if (!project.hasProperty("noVault")) modrinth("vaultunlocked", "2.20.3")
             modrinth("luckperms", "v5.5.71-bukkit")
-            // EssentialsX 2.22.0 lists 26.1.2 at most (no 26.3 release yet) - verify it runs.
-            modrinth("essentialsx", "2.22.0")
+            // EssentialsX 2.22.0 lists 26.1.2 at most (no 26.3 release yet) - verified running on 26.3.
+            if (!project.hasProperty("noEconomy")) modrinth("essentialsx", "2.22.0")
         }
     }
 }

@@ -1,8 +1,8 @@
-# guishop: pravidla pro každou session
+# TidyShop (repo guishop): pravidla pro každou session
 
 ## Stack
 - Paper 26.3, Java 25, Gradle 9.9.1, MockBukkit 4.120.0, JUnit 5.
-- Hlavní třída pluginu (`GuiShopPlugin`) nesmí být `final` (MockBukkit ji dědí).
+- Hlavní třída pluginu (`TidyShopPlugin`) nesmí být `final` (MockBukkit ji dědí).
 
 ## Postup
 - Pracuj podle `SPEC.md`. Dělej vždy jen modul, který zadám, nic mimo jeho scope.

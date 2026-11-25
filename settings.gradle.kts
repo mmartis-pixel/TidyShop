@@ -1,1 +1,1 @@
-rootProject.name = "guishop"
+rootProject.name = "TidyShop"

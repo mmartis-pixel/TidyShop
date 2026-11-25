@@ -1,15 +1,15 @@
-name: GuiShop
+name: TidyShop
 version: '${version}'
-main: cz.mmartis.guishop.GuiShopPlugin
+main: cz.mmartis.tidyshop.TidyShopPlugin
 api-version: '26.3'
 author: mmartis
-description: GUI shop napojený na Vault ekonomiku.
+description: Chest GUI shop for Vault economies.
 depend: [Vault]
 
 permissions:
-  guishop.use:
-    description: Otevřít obchod (/shop).
+  tidyshop.use:
+    description: Open the shop (/shop).
     default: true
-  guishop.admin:
-    description: Znovu načíst konfiguraci (/shop reload).
+  tidyshop.admin:
+    description: Reload the configuration (/shop reload).
     default: op

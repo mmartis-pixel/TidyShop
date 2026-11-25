@@ -1,4 +1,4 @@
-# GuiShop messages. Format: MiniMessage, https://docs.advntr.dev/minimessage/format.html
+# TidyShop messages. Format: MiniMessage, https://docs.advntr.dev/minimessage/format.html
 # Any message can contain <prefix>, which is replaced by the prefix below.
 # After editing, run /shop reload. A deleted key falls back to the built-in text.
 
@@ -11,8 +11,27 @@ main-menu-title: "<dark_gray>Shop"
 # /shop typed in the server console.
 players-only: "<prefix><red>Only players can open the shop."
 
-# Clicking a category, until category pages exist. <category> = category id.
-category-clicked: "<prefix><gray>Category <white><category></white> - pages are coming soon."
+# Category pages are titled with the category name from config.yml.
+# Name of the Back button in the bottom row of a category page.
+back-button: "<yellow>Back"
+
+# Lore under each item on a category page. A line is shown only if that action is enabled
+# for the item (a buy line only with a buy price, a sell line only with a sell price).
+# <price> = price of 1 piece, <stack> = stack size, <stack-price> = price of a full stack.
+lore-buy: "<gray>Buy: <green><price></green> <dark_gray>(<stack> for <stack-price>)"
+lore-sell: "<gray>Sell: <gold><price></gold>"
+lore-buy-hint: "<yellow>Left-click</yellow><gray> buy 1, <yellow>Shift+Left</yellow><gray> buy <stack>"
+lore-sell-hint: "<yellow>Right-click</yellow><gray> sell 1, <yellow>Shift+Right</yellow><gray> sell all"
+
+# Results of clicking an item. <item> = item name (in the player's language),
+# <amount> = number of pieces, <price> = total money.
+bought: "<prefix><green>Bought <amount>x <item> for <price>."
+sold: "<prefix><green>Sold <amount>x <item> for <price>."
+no-money: "<prefix><red>You cannot afford <amount>x <item> (<price>)."
+no-space: "<prefix><red>Not enough room in your inventory for <amount>x <item>."
+nothing-to-sell: "<prefix><red>You have no <item> to sell. Renamed, enchanted or damaged items do not count."
+no-economy: "<prefix><red>The shop is closed: no economy plugin is installed."
+economy-failed: "<prefix><red>The payment failed, nothing was changed."
 
 # /shop reload succeeded.
 reload-success: "<prefix><green>Configuration reloaded."
